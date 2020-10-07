@@ -45,21 +45,13 @@ public class LoginController {
 	
 	@ResponseBody
 	public String showUsers() {
-		/*
-		 * UserRepositoryのインスタンスからfindA11メソッドを呼び出し、Userエンティティのリストを取得しています。
-		 * テキスト通り作成している場合、DBにはレコードが１件しか存在していませんが、List型で取得します。
-		 * なぜなら、findA11メソッドの戻り値のデータ型がListだからです。
-		 */
+	
 		List<User> users =  userRepos.findAll();
 		
-		/*
-		 * 上記で取得したリストの０番を取得しています。
-		 */
+	
 		User user = users.get(0);
 		
-		/*
-		 * Userエンティティのインスタンスから、userNameとpasswordを連結した文字列を作成しています。
-		 */
+		
 		String info = user.getUserName() + "" + user.getPassword();
 		
 		return info;
